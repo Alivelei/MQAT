@@ -1,0 +1,58 @@
+lang_choice = "en"
+run_mode = "test"
+
+
+[dataset]
+dataset_path = "./CLEFdata/test/VQAMed2019_Test_Images/"
+dataset_json_path = "./CLEFdata/test/test.json"
+dataset_img_path = "./CLEFdata/test/VQAMed2019_Test_Images"
+
+
+[model]
+learning_rate = 0.005
+qus_embedding_dim = 300
+dropout = 0
+num_heads = 8
+random_seed = 1024
+in_channels = 3
+seq_len = 49
+emb_size = 768
+img_size = 224
+ngf_conv = 64
+depth = 12
+start_epoch_save = 250
+save_frequency = 20
+
+
+[config]
+batch_size = 1
+shuffle = false
+epochs = 500
+device_ids = [0]
+glove_path = "./model/glove_emb_300d.npy"
+log_path = "./log"
+qus_ws_path = "./model/qus_ws.pkl"
+ans_ws_path = "./model/ans_ws.pkl"
+sort_ws_path = "./model/sort_ws.pkl"
+qus_seq_len = 20
+qus_word_size = 104
+ans_word_size = 1549
+answer_open = 0
+answer_close = 1
+sort_number = 11
+num_workers = 0
+train_epoch_effect_path = "./param/train_epoch_effect.json"
+test_epoch_effect_path = "./param/test_epoch_effect.json"
+latest_model_path = "./model/latest_model.pth"
+latest_parameter_path = "./model/latest_parameter.pth"
+best_model_path = "./model/best_model.pth"
+best_parameter_path = "./model/best_parameter.pth"
+test_best_model_path = "./model/test_best_model.pth"
+test_best_parameter_path = "./model/test_best_parameter.pth"
+
+
+[image]
+img_height = 224
+img_width = 224
+img_mean = [0.2634, 0.2634, 0.2634]
+img_std = [0.2758, 0.2758, 0.2758]

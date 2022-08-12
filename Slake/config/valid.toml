@@ -1,0 +1,66 @@
+lang_choice = "en"
+run_mode = "valid"
+
+
+[dataset]
+dataset_path = "./Slake1.0/validate.json"
+dataset_xm_path = "./Slake1.0/imgs/xmlab"
+
+
+[model]
+learning_rate = 0.0003
+qus_embedding_dim = 200
+lstm_num_layers = 2
+dropout = 0.2
+random_seed = 1024
+lstm_n_hidden = 1024
+img_out_channel = 256
+conv_ngf = 128
+alpha_1 = 0.7
+alpha_2 = 0.3
+alpha_a = 1  # 指代loss前面的系数s
+alpha_b = 0.8
+start_epoch_save = 120
+save_frequency = 10
+
+
+[config]
+batch_size = 56
+shuffle = true
+epochs = 500
+device_ids = [0, 1, 2, 3]
+pretrained_model = "./pretrained/swin_tiny_patch4_window7_224.pth"
+log_path = "./log"
+en_qus_ws_path = "./model/en_qus_ws.pkl"
+en_ans_ws_path = "./model/en_ans_ws.pkl"
+zh_qus_ws_path = "./model/zh_qus_ws.pkl"
+zh_ans_ws_path = "./model/zh_ans_ws.pkl"
+sort_ws_path = "./model/sort_ws.pkl"
+en_qus_seq_len = 20
+en_qus_word_size = 305
+en_ans_word_size = 223
+zh_qus_seq_len = 20
+zh_qus_word_size = 315
+zh_ans_word_size = 270
+answer_open = 0
+answer_close = 1
+sort_number = 11
+
+
+[image]
+img_height = 224
+img_width = 224
+img_mean = [0.38026, 0.38026, 0.38026]
+img_std = [0.2979, 0.2979, 0.2979]
+
+
+[ban]
+x_dim=256  # 和图像特征图个数保持一致
+y_dim=1024
+z_dim=1024
+glimpse=16
+v_dim=256  # 和图像特征图个数保持一致
+hid_dim=1024
+ban_model_path = "./model/ban_model.pth"
+ban_parameter_path = "./model/ban_parameter.pth"
+
